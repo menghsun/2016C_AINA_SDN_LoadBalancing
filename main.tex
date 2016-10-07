@@ -1,0 +1,84 @@
+%\usepackage{geometry}  % for easy margin settings
+%% margins setting // NCKU內頁設定 // cbj
+%\geometry{verbose,a4paper,tmargin=2.3cm,bmargin=3.5cm,lmargin=2.5cm,rmargin=3cm}
+
+\documentclass[conference]{IEEEtran}
+
+\usepackage{times}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{wallpaper}
+\usepackage{pdfpages}
+\usepackage{indentfirst}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{enumitem}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{amssymb}
+
+
+% Title
+\title{Adaptive Load-balancing Scheme Through Wireless SDN-based Association Control}
+
+% Author
+\author{
+	\IEEEauthorblockN{
+		Chia-Ying Lin\IEEEauthorrefmark{1}, 
+		Wan-Ping Tsai\IEEEauthorrefmark{1}, 
+		Meng-Hsun Tsai\IEEEauthorrefmark{1} and
+		Hui-Ling Chang\IEEEauthorrefmark{1}	}
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{1}Department of Computer Science and Information Engineering, National Cheng Kung University, Taiwan\\
+	}
+	\IEEEauthorblockA{
+		Email: \{wanping,a711186,tsaimh,momo\}@imslab.csie.ncku.edu.tw
+	}
+}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In WLAN, due to the popularity of mobile users, the internet access utilization has increased a lot. One of the critical issues is that when a large amount of users move in public places together, like airport or train station, severe load imbalance of APs and unfair bandwidth allocation occur consequently.
+
+Software Defined Network (SDN), proposed by the Stanford University, separates the control modules, which are managed by centralized controllers, from the infrastructure layer. SDN is programmable. SDN allows the network administrators to write programs on the controllers.
+
+In this thesis, we propose an adaptive load balancing scheme through association control in wireless software defined network. We design a system model which consists of an event detection mechanism and an adaptive load balancing algorithm on controller. In our algorithm, controller can derive an optimal association solution by computing the load and user number of APs. To observe the effect of population distribution and user mobility, we propose a simulation model to investigate the performance in terms of average AP load, user bandwidth and user throughput. Our simulation results show that our scheme has better performance than other three methods and performs better in imbalance environment.
+
+
+%{\bf Keywords}: association control, IEEE 802.11 network, load balancing, SDN
+%\begin{keyword}
+%association control, IEEE 802.11 network, load balancing, SDN
+%\end{keyword}
+\end{abstract}
+
+\section{Introduction} \label{ch:1-introduction}
+	\input{sec1.tex}
+
+\section{Related Works} \label{ch:2-background}
+	\input{sec2.tex}
+
+\section{Proposed Scheme} \label{ch:3-proposed}
+	\input{sec3.tex}
+	
+\section{Performance Evaluation} \label{ch:5-performance}
+	\input{sec4.tex}
+	
+\section{Conclusions} \label{ch:6-conclusion}
+	\input{sec5.tex}
+	
+\bibliographystyle{IEEEtran}
+\bibliography{reference}	
+	
+\end{document}
+
