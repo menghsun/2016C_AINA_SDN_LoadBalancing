@@ -1,11 +1,38 @@
 %\hspace{24pt}
-In recent years, the number of intelligent mobile devices has rapidly increased \cite{tai2015comparative}. The penetration rate of wireless Internet has already increased to $91.5\%$ in 2014, which was $14\%$ eight years ago \cite{survey2014comparative}. To meet the growth of user traffic load in Wireless Local Area Network (WLAN), more and more wireless Access Points (APs) are constructed around us. There are currently about 47 million APs worldwide, and the number of APs is expected to be seven times in 2018 \cite{iPassSurvey}.
+In recent years, the number of intelligent mobile devices has rapidly increased \cite{tai2015comparative}. The penetration rate of wireless Internet has already increased to $91.5\%$ in 2014, which was $14\%$ eight years ago \cite{survey2014comparative}. To meet the growth of user traffic load in Wireless Local Area Network (WLAN), more and more Wi-Fi Access Points (APs) are constructed around us. There are currently about 47 million APs worldwide, and the number of APs is expected to be seven times in 2018 \cite{iPassSurvey}.
 
-In some occasions (conference, classroom, etc.), hundreds of wireless devices attempt to associate with the same AP in a short time. The overloading AP infers low throughput problem for users and load imbalanced problem in WLANs. Therefore, an adaptive mobility management is more important. However, there are some difficulties in current wireless architecture. First, due to the distributed management mechanism, it is difficult to add a new feature (e.g. new association control mechanism) into all of the low-level APs. Second, many personnel costs are required to configure the forwarding rules of all the APs and to avoid conflicts among these rules.  Last, the signal of an AP is usually interfered by the other nearby APs owing to the lack of cooperation among APs. All we need is a more resiliently, scalable and centralized-control network architecture.
+In some occasions (conference, classroom, etc.), hundreds of wireless devices attempt to associate with one AP in a short time. AP overloading infers low throughput problem for users and load imbalance problem in WLANs. 
+%Therefore, an adaptive mobility management is more important. 
+In these occasions, load balancing becomes a critical issue.
+However, there are some difficulties in current wireless architecture. 
+First, due to 
+%distributed nature 
+lack of flexibility of the legacy management mechanisms, it is difficult to add new features (e.g., new association control mechanism) into currently deployed APs.
+%all of the low-level APs. 
+Second, many personnel costs are required to configure the forwarding rules of all the APs and to avoid conflicts among these rules.  
+Last, the signal of an AP is usually interfered by the other nearby APs owing to the lack of cooperation among APs. 
+All we need is a more resilient, scalable network architecture with centralized control.
 
-Software Defined Network (SDN) is a new networking paradigm that provides a more flexible and programmable architecture. SDN separates the control modules from the infrastructure layer to the centralized controllers. OpenFlow \cite{mckeown2008openflow} is the first southbound interface, which defines the protocol between the controllers and switches, in SDN. OpenFlow realizes that the switches from different vendors can cooperate with each other and providing more choices in selecting infrastructure components (e.g. APs, switches). Besides, the SDN allows the network administrators to write programs on the controllers. Hence, we use the programmable architecture to apply our association control mechanism into the wireless network resiliently and easily.
+Software Defined Network (SDN) is a new networking paradigm that provides a more flexible and programmable architecture. SDN separates the control modules from the infrastructure layer to the centralized controllers. 
+In SDN, OpenFlow \cite{mckeown2008openflow} is 
+%the first southbound interface, which defines the 
+%one of the major protocols 
+proposed to allow
+%between 
+the controllers to control behaviors of switches.
+OpenFlow realizes that the switches from different vendors can easily cooperate with each other, and thus provides more choices in selecting infrastructure components (e.g., APs, switches). 
+Besides, the SDN allows the network administrators to write programs on the controllers. Hence, we use the programmable architecture to apply our association control mechanism into the wireless network resiliently and easily.
 
-We propose an adaptive load balancing scheme through association control. By the concept of SDN, we use controllers to collect the load of APs and user connection situations. Based on the global vision of all APs, we designed an algorithm for controller to do association control. At the moment when controller detect the load of APs is imbalanced, controller can adaptively configure the beacon power of all APs. Based on the ability to adjust user-to-AP association resiliently, we propose adaptive load balancing scheme to improve the performance in WLAN.
+Based on SDN,
+we propose an adaptive load balancing scheme for Wi-Fi APs through association control. 
+By the concept of SDN, we use the controller to collect the load of APs and user connection situations.
+Based on the global vision of the controller, we design an algorithm to do association control as follows. 
+%At the moment 
+When the controller detects that the load of APs is imbalanced, the controller adaptively configures the beacon power of relevant APs. 
+In this case, some users may change association from APs with weak power to APs with strong power.
+%Based on the ability to adjust user-to-AP association resiliently, 
+Based on the power adjustment,
+we propose adaptive load balancing scheme to improve the performance in WLANs.
 
 % above Dotto
 

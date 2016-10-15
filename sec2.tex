@@ -1,5 +1,7 @@
 %\hspace{24pt}
-In this section, we introduce SDN architecture and existing load balancing techniques. In order to balance the total AP load, various association control schemes have been proposed in the past.
+%In this section, we introduce SDN architecture and existing load balancing techniques. 
+%In order to balance the total AP load, various association control schemes have been proposed in the past.
+
 
 % ====remove SDN section by little six====
 % \subsection{Software Defined Network}
@@ -20,13 +22,45 @@ In this section, we introduce SDN architecture and existing load balancing techn
 
 
 % \subsection{Association Control}
-In this section, we introduce some existing user-to-AP association decision schemes which were proposed to balance the total AP load. We classified these schemes into three main categories, namely \emph{strongest signal first}, \emph{least load first} and \emph{Cell Breathing}.
+%In this section, we introduce some existing user-to-AP association decision schemes which were proposed to balance the total AP load. 
+In this section, we describe existing association control schemes and load balancing schemes in literature.
+% which are based on association control.
+%We classify these schemes into three categories: \emph{strongest signal first} (SSF), \emph{least load first} (LLF) and \emph{Cell Breathing}.
 
-\begin{itemize}
-	\item $\emph{Strongest Signal First}$: The Strongest Signal First (SSF) method is the traditional association mechanism in IEEE 802.11 standard. If a user has many APs to choose, it will select the AP with the largest Received Signal Strength Indicator (RSSI) value to associate with. In \cite{teng2009d} and \cite{wu2007proactive}, user are setting to re-associated with the stronger signal strength AP. The main problem of these scheme is that, it ignores the load of AP. If too many users associate to the strongest signal AP at the same time, these users may receive worse performance from this overloading AP.
-	\item $\emph{Least Load First}$: Least Load First (LLF) is a widely used load balancing heuristic in which a user selects the least-load AP that he can reach. \cite{papanikos2001study} proposed an association metrics by considering the number of users currently associated with AP. \cite{balachandran2002hot} proposed an association selection scheme that users will associate to the AP which can provide a minimal user-required bandwidth. \cite{bejerano2004fairness} Consider the fairness among all users in the association control.
-	\item $\emph{Cell Breathing}$: The cell breathing concept has been studied mostly in CDMA cellular network. In \cite{bahl2007cell} and \cite{bejerano2009cell}, they applied the cell breathing method to IEEE 802.11 WLANs. Figure \ref{fig:cell-breathing} illustrates the example of cell breathing method. First, these APs are associated with 1, 7, 1 users in Figure \ref{fig:fig2_2a}. Through adjusting the power level of APs, some users of AP b shift to adjacent APs, and then the APs are all associated with three users in Figure \ref{fig:fig2_2b}. In Cell Breathing method, an access controller can receive the load of APs, but it has no information of users' positions. The controller can only adjust the beacon power of highest load AP without any prediction of association change trend.
-\end{itemize}
+%\begin{itemize}
+%	\item SSF: 
+The strongest signal first (SSF) method is the traditional association mechanism defined in IEEE 802.11 standards~\cite{ieee2001ieee}. 
+	%If a user has many APs to choose, it will select the AP with the largest Received Signal Strength Indicator (RSSI) value to associate with.
+	When a device detects more than one AP, the device selects the AP with the largest received signal strength indicator (RSSI) value for association.
+%	In \cite{teng2009d} and \cite{wu2007proactive}, user are setting to re-associated with the stronger signal strength AP. 
+This method is also widely adopted in handoff schemes~\cite{teng2009d,wu2007proactive}.
+	The main problem of these schemes is the load imbalance of APs. 
+	When too many users associate to an AP with strong signal at the same time, these users may incur worse performance from the overloaded AP.
+	
+%	\item LLF: 
+	Least load first (LLF) is the most straightforward load balancing scheme, where users select the  AP with least number of users~\cite{papanikos2001study}.
+	% proposed an association metrics by considering the number of users currently associated with AP. 
+	In~\cite{balachandran2002hot}, Balachandran et al. proposed 
+	%an association selection scheme 
+	that users associate to the AP which can provide sufficient bandwidth based on the users' bandwidth requirement. 
+	In \cite{bejerano2004fairness}, Bejerano et al. further consider the fairness among all users in  association control.
+
+%	\item $\emph{Cell Breathing}$: 
+The cell breathing concept has been studied mostly in code devision multiple access (CDMA) cellular network. 
+In \cite{bahl2007cell} and \cite{bejerano2009cell}, cell breathing was applied to IEEE 802.11 WLANs. 
+Figure \ref{fig:cell-breathing} illustrates an example of cell breathing method. 
+First, the three APs in Figure~\ref{fig:fig2_2a} are associated with 1, 7, and 1 users, respectively.
+Through adjusting the power levels of APs, some users of AP b shift to adjacent APs, and then the APs are all associated with three users in Figure \ref{fig:fig2_2b}. 
+In the cell breathing method, an access controller can obtain the load of APs, but 
+it has no information of users' positions. 
+In this case, the controller can only adjust the beacon power of the AP with the highest load step by step until the load of APs is balanced.
+%For the related work of cell breathing method, 
+To achieve load balancing, in \cite{bejerano2009cell}, Bejerano et al. proposed an algorithm to determine globally optimal inter-AP fairness. 
+However, both \cite{bahl2007cell} and \cite{bejerano2009cell} 
+adjust the AP power level based on limited information (e.g., number of users).
+%cannot adjust the AP power level adaptively due to limited information of AP loads. 
+% without any prediction of association change trend.
+%\end{itemize}
 
 %% Fig:2.2
 \begin{figure}
@@ -43,10 +77,16 @@ In this section, we introduce some existing user-to-AP association decision sche
 			\label{fig:fig2_2b}
 		}
 		
-	\caption{Using Cell Breathing Method for Imbalance Situation.}
+	\caption{Using Cell Breathing Method for Imbalanced Situation.}
 	\label{fig:cell-breathing}
 \end{figure}
 
-In this paper, we propose a load-balancing scheme by combining the cell breathing method with SDN. For the related work of cell breathing method, \cite{bejerano2009cell} proposed an algorithm to determine global optimal solutions for inter-AP fairness. Howerver, both \cite{bahl2007cell} and \cite{bejerano2009cell} cannot adjust the AP power level adaptively due to limited information of AP loads. Through SDN, we can use the global vision to collect the load of AP and users' RSSIs accurately. In this way, our scheme is adaptive. Futhermore, the users' positions can be derived by users' RSSI according to \cite{zaruba2007indoor}. 
+In this paper, we propose an adaptive load balancing scheme which can further improve performance of
+%by combining the 
+cell breathing by considering the flexibility of SDN.
+% method with SDN. 
+Through SDN, we can use the global vision to collect the load of AP and users' RSSIs accurately. 
+%In this way, our scheme is adaptive. 
+Furthermore, the users' positions can be derived by users' RSSI according to~\cite{zaruba2007indoor}. 
 % above Dotto
 
