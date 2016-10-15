@@ -40,9 +40,16 @@
     \end{center} 
 \end{table}
 
-The notations used in our scheme are shown in Table \ref{tab: Notations}. We consider an IEEE 802.11 WLAN with a set of APs, which is denoted by $A$, and $|A|$ indicates the number of APs. In our system, all APs are attached to a wired infrastructure and an OpenFlow controller. Figure \ref{fig:scheme1} shows our system architecture. In our scheme, we only discuss the transmission power of AP beacon messages, because only beacon messages are related to the AP selection of users. We denote transmission power as $P_a$  . Each AP provides several transmission power levels, denoted by $P_a^*$. We define $P_a^*$ is a geometric series
+The notations used in our scheme are shown in Table \ref{tab: Notations}. We consider an IEEE 802.11 WLAN with a set of APs, which is denoted by $A$, and $|A|$ indicates the number of APs. 
+Figure \ref{fig:scheme1} shows our system architecture. 
+In our system, all APs are attached to a wired infrastructure and an OpenFlow controller. 
+In our scheme, we focus on the transmission power of AP beacon messages since beacon messages are used for AP association.
+% to the AP selection of users. 
+We denote transmission power as $P_a$  . Each AP provides several transmission power levels, denoted by $P_a^*$. 
+%We define 
+Then $P_a^*$ is a geometric series and can be expressed as
 \begin{eqnarray}
-{P_a^*}=f({P_a})=log _r⁡\left({P_a} \right)  ,  r=\sqrt[N]{\frac{P_{max}}{P_{min}}}
+{P_a^*}=log _r⁡\left({P_a} \right)  \quad,r=\sqrt[N]{\frac{P_{max}}{P_{min}}}
 \end{eqnarray}
 We denote $P_a^*=P_{min}$ as the minimum power level of AP, and similarly we denote $P_N^*=P_{max}$ as the maximum power level. For normal commercial AP products, the transmission power level configuration follow that
 \begin{align}
