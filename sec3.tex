@@ -25,36 +25,50 @@
             \hline $L_a$            & the load of AP $a$ \\ 
             \hline $L_{a,u}$        & the load contribution of user $u$ to AP $a$ \\ 
             \hline $C$              & the set of overcrowding APs \\ 
-            \hline $N$              & \\
-            \hline $P_a$            & transmission power of AP $a$, $P_a$ $\in$ $[$0, $N]$ \\ 
-            \hline $P_{max}$        & \\
-            \hline $P_{min}$        & \\
-            \hline $P^{*}_{a}$      & transmission power level of AP $a$, $P^{*}_a$ = $log_\gamma P_a$ \\ 
+            \hline $P_a$            & transmission power of AP $a$\\ 
+            \hline $P_{a, max}$     & the maximum transmission power of AP $a$\\
+            \hline $P_{a, min}$     & the minimun transmission power of AP $a$\\
+            \hline $P^{*}_{a}$      & the transmission power level of AP $a$\\
+            \hline $N$              & the number of transmission power level\\
+            \hline $P^{*}_{a(lv.n)}$   & the transmission power level of AP $a$ at level $n$, $n$ $\in$ $[$0, $N]$\\
+            %%  ==== comment by little six 2016/10/21 ==== 
+            %%  (equation 1 would explain this)
+            %, $P^{*}_a$ = $log_\gamma P_a$ \\ 
             \hline $S_v, S_n, S_o$  & three different load level set of APs, $A$ = $S_v$ + $S_n$ + $S_o$ \\ 
             \hline $b_{vn}, b_{no}$ & boundaries between three load state \\ 
-            \hline $R_u$            & the RSSI value of user $u$ \\ 
-            \hline $TH_{lq}$        & RSSI threshold within Section low quality (LQ) and acceptable quality (AQ) \\ 
-            \hline $S^k$            & the network states during a load-balancing process, k $\in [$0, $N]$ \\ 
+            \hline $R_u$            & the RSSI value of user $u$ \\
+            %%  ==== comment by little six 2016/10/21 ==== 
+            %%  (not used in following description)
+            % \hline $TH_{lq}$        & RSSI threshold within Section low quality (LQ) and acceptable quality (AQ) \\ 
+            \hline $S^k$            & the network states during a load-balancing process\\
+            %%  ==== comment by little six 2016/10/21 ==== 
+            %%  (different definition of N)
+            %, k $\in [$0, $N]$ \\ 
             \hline 
         \end{tabularx} 
     \end{center} 
 \end{table}
 
-The notations used in our scheme are shown in Table \ref{tab: Notations}. We consider an IEEE 802.11 WLAN with a set of APs, which is denoted by $A$, and $|A|$ indicates the number of APs. 
 Figure \ref{fig:scheme1} shows our system architecture. 
-In our system, all APs are attached to a wired infrastructure and an OpenFlow controller. 
+The notations used in our scheme are shown in Table \ref{tab: Notations}. 
+We consider an IEEE 802.11 WLAN with a set of APs, which is denoted by $A$, and $|A|$ indicates the number of APs. 
+All APs are attached to a wired infrastructure and an OpenFlow controller. 
+
 In our scheme, we focus on the transmission power of AP beacon messages since beacon messages are used for AP association.
 % to the AP selection of users. 
-We denote transmission power as $P_a$  . Each AP provides several transmission power levels, denoted by $P_a^*$. 
+We denote transmission power of AP $a$ as $P_a$.
+According to the configuration and ability, each AP has its maximum and minimum transmission power, denoted as $P_{max}$ and $P_{min}$ respectively. 
+Each AP also provides several transmission power levels from $0$ to $N$, denoted by $P_{a(lv.n)}^*$. 
+We denote $P_{a(lv.0)}^*=P_{a, min}^*$ as the minimum power level of AP, and similarly we denote $P_{a(lv.N)}^*=P_{a, max}^*$ as the maximum power level.
+For normal commercial AP products, the transmission power level configuration follow that
 %We define 
-Then $P_a^*$ is a geometric series and can be expressed as
 \begin{eqnarray}
-{P_a^*}=log _r⁡\left({P_a} \right)  \quad,r=\sqrt[N]{\frac{P_{max}}{P_{min}}}
+{P_a^*}=log _\gamma\left({P_a} \right)  \quad,\gamma=\sqrt[N]{\frac{P_{max}}{P_{min}}}
 \end{eqnarray}
-We denote $P_a^*=P_{min}$ as the minimum power level of AP, and similarly we denote $P_N^*=P_{max}$ as the maximum power level. For normal commercial AP products, the transmission power level configuration follow that
+Then $P_{a(lv.n)}^*$ is a geometric series which can be expressed as
 \begin{align}
-&P_k^*={P_{k-1}^*}*r\\										
-&P_k^*={P_{min}^*}*{r^k}, k\in[0..N].							
+&P_{a(lv.k)}^*={P_{a(lv.k-1)}^*}*\gamma\\										
+&P_{a(lv.k)}^*={P_{a, min}^*}*{\gamma^k}, k\in[0, N].							
 \end{align}
 In our scheme we have some assumptions. First, we assume that the interference between adjacent cells can be ignored. Second, we assume that the AP deployment ensures complete overlaps between the ranges of all APs. In other words, if all APs are configured to the minimum transmission power $P_{min}$, every user in network coverage area can be still covered.
 
