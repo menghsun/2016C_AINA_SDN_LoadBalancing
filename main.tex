@@ -2,7 +2,7 @@
 %% margins setting // NCKU內頁設定 // cbj
 %\geometry{verbose,a4paper,tmargin=2.3cm,bmargin=3.5cm,lmargin=2.5cm,rmargin=3cm}
 
-\documentclass[conference]{IEEEtran}
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
 
 \usepackage{times}
 \usepackage{verbatim}
@@ -34,9 +34,8 @@
 		Meng-Hsun Tsai and
 		Yun-Zhan Cai	}
 	\IEEEauthorblockA{
-		Department of Computer Science and Information Engineering, National Cheng Kung University, Taiwan\\
-	}
-	\IEEEauthorblockA{
+		Department of Computer Science and Information Engineering, National Cheng Kung University,\\
+		Tainan, Taiwan\\
 		Email: \{a711186, wanping\}@imslab.csie.ncku.edu.tw, tsaimh@csie.ncku.edu.tw, F74039017@mail.ncku.edu.tw
 	}
 }
@@ -66,12 +65,13 @@ based on the traffic load and number of users on each AP.
 To observe the effects of population distribution and user mobility, we propose a simulation model to investigate the performance in terms of average AP load, user bandwidth and user throughput. 
 Our simulation results show that our scheme has better performance than other three methods and performs better in imbalanced environment.
 
-
-%{\bf Keywords}: association control, IEEE 802.11 network, load balancing, SDN
-%\begin{keyword}
-%association control, IEEE 802.11 network, load balancing, SDN
-%\end{keyword}
 \end{abstract}
+
+% {\bf Keywords}: association control, IEEE 802.11 network, load balancing, SDN
+\begin{IEEEkeywords}
+association control; IEEE 802.11 network; load balancing; SDN
+
+\end{IEEEkeywords}
 
 \section{Introduction} \label{ch:1-introduction}
 	\input{sec1.tex}
@@ -87,7 +87,12 @@ Our simulation results show that our scheme has better performance than other th
 	
 \section{Conclusions} \label{ch:6-conclusion}
 	\input{sec5.tex}
-	
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+%The authors would like to thank...
+This work was sponsored in part by Ministry of Science and Technology (MOST), Taiwan, under the contract number MOST 105-2221-E-006-186- and MOST 105-2815-C-006-108-E. 
+
 \bibliographystyle{IEEEtran}
 \bibliography{reference}	
 	
