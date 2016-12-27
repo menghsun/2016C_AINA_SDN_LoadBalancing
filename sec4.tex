@@ -4,7 +4,9 @@ In this section, we verify whether our scheme balances the load more significant
 \subsection{Simulation Model}
 The details of our simulation setup is shown in Table \ref{tab:Simulation-Setup}. Most parameters are configured according to existing Cell-Breathing method in literature \cite{bejerano2009cell}. We use NS3 as our simulation tool, and we set simulation time to 10000s. We totally set 20 APs, which are all support IEEE 802.11g standard. Each AP is equipped with 54 megabits per second backhaul link. These APs are located in $550 * 450 m^2$ area and they are arranged into four lines for five APs per line. The distance between two adjacent APs is set to 100 meters, and those APs are 75 meters far from the simulated area border. In order to ensure that all users are in the coverage of APs, we set the minimum transmission distance is 75 meters. To determine the transmission bit rate between users and APs, we list the relationship between SNR and bit rate in Table \ref{tab:Traffic-Bit-Rate}.
 
-In order to build the mobility of our scenario, we use the BonnMotion tool to generate user traces. We use the Reference Position Group Mobility model (RPGM) to generate three cases of user number, which are 100, 250 and 400. Figure \ref{fig:scenario-400n} shows the scenario with 400 users in our simulated area. These users are divided into two groups and follow the group mobility. Each group brings heavy connection demand when the group moves into coverage of an AP.
+In order to build the mobility of our scenario, we use the BonnMotion tool to generate user traces. We use the Reference Position Group Mobility model (RPGM) to generate three cases of user number, which are 100, 250 and 400. 
+%Figure \ref{fig:scenario-400n} shows the scenario with 400 users in our simulated area. 
+These users are divided into two groups and follow the group mobility. Each group brings heavy connection demand when the group moves into coverage of an AP.
 
 %% Table 4.1
 % \usepackage{booktabs}
@@ -47,13 +49,13 @@ Moving Speed         & {[}0.5, 1.5{]} m/s                       \\ \bottomrule
 %%\clearpage
 
 %% Figure 4.1
-\begin{figure}[tbp]
-\begin{center}
-\includegraphics[width=3in]{images/400n.png}
-\end{center}
-\caption{A WLAN Scenario with 20 APs in $550*450m^2$ for NS3 Simulations (The 400 users follow the Reference Position Group Mobility model.)}
-\label{fig:scenario-400n}
-\end{figure}
+% \begin{figure}[tbp]
+% \begin{center}
+% \includegraphics[width=3in]{images/400n.png}
+% \end{center}
+% \caption{A WLAN Scenario with 20 APs in $550*450m^2$ for NS3 Simulations (The 400 users follow the Reference Position Group Mobility model.)}
+% \label{fig:scenario-400n}
+% \end{figure}
 %\clearpage
 
 \subsection{The Performance of APs}
@@ -168,7 +170,7 @@ We calculate the average throughput of three cases and compare the performance i
 
 %% Table 4.4
 \begin{table}[tbp]
-\setlength{\belowcaptionskip}{20 pt}
+\setlength{\belowcaptionskip}{15pt}
 \centering
 \caption{Summary of the User Throughput}
 \label{tab:Average-user-throughput}
