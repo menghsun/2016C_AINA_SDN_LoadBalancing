@@ -31,19 +31,24 @@ In this section, we describe existing association control schemes and load balan
 %	\item SSF: 
 The strongest signal first (SSF) method is the traditional association mechanism defined in IEEE 802.11 standards~\cite{ieee2001ieee}. 
 	%If a user has many APs to choose, it will select the AP with the largest Received Signal Strength Indicator (RSSI) value to associate with.
-	When a device detects more than one AP, the device selects the AP with the largest received signal strength indicator (RSSI) value for association.
+%	When a device detects more than one AP
+The device selects the AP with the largest received signal strength indicator (RSSI) value for association.
 %	In \cite{teng2009d} and \cite{wu2007proactive}, user are setting to re-associated with the stronger signal strength AP. 
 This method is also widely adopted in handoff schemes~\cite{teng2009d,wu2007proactive}.
-	The main problem of these schemes is the load imbalance of APs. 
-	When too many users associate to an AP with strong signal at the same time, these users may incur worse performance from the overloaded AP.
+%	The main problem of these schemes is the load imbalance of APs. 
+%	When too many users associate to an AP with strong signal at the same time, these users may incur worse performance from the overloaded AP.
 	
 %	\item LLF: 
-	Least load first (LLF) is the most straightforward load balancing scheme, where users select the  AP with least number of users~\cite{papanikos2001study}.
+Least load first (LLF) is the most straightforward load balancing scheme, where users select the  AP with least number of users~\cite{papanikos2001study}.
 	% proposed an association metrics by considering the number of users currently associated with AP. 
-	In~\cite{balachandran2002hot}, Balachandran et al. proposed 
-	%an association selection scheme 
-	that users associate to the AP which can provide sufficient bandwidth based on the users' bandwidth requirement. 
-	In \cite{bejerano2004fairness}, Bejerano et al. further consider the fairness among all users in  association control.
+In~\cite{balachandran2002hot},  
+	%Balachandran et al. proposed an association selection scheme that 
+users associate to the AP which 
+	%can provide sufficient bandwidth based on the 
+	can meet users' bandwidth requirements. 
+In \cite{bejerano2004fairness}, 
+	%Bejerano et al. further consider 
+	the fairness among all users in association control is considered.
 
 %	\item $\emph{Cell Breathing}$: 
 The cell breathing concept has been studied mostly in code devision multiple access (CDMA) cellular network. 
@@ -51,13 +56,16 @@ In \cite{bahl2007cell} and \cite{bejerano2009cell}, cell breathing was applied t
 Figure \ref{fig:cell-breathing} illustrates an example of cell breathing method. 
 First, the three APs in Figure~\ref{fig:fig2_2a} are associated with 1, 7, and 1 users, respectively.
 Through adjusting the power levels of APs, some users of AP b shift to adjacent APs, and then the APs are all associated with three users in Figure \ref{fig:fig2_2b}. 
-In the cell breathing method, an access controller can obtain the load of APs, but 
-it has no information of users' positions. 
-In this case, the controller can only adjust the beacon power of the AP with the highest load step by step until the load of APs is balanced.
+In the cell breathing method, %an access controller can obtain the load of APs, but 
+without the information of users' positions, 
+%In this case, 
+the controller can only adjust the beacon power of the APs with the highest load step by step until the load of APs is balanced.
 %For the related work of cell breathing method, 
-To achieve load balancing, in \cite{bejerano2009cell}, Bejerano et al. proposed an algorithm to determine globally optimal inter-AP fairness. 
-However, both \cite{bahl2007cell} and \cite{bejerano2009cell} 
-adjust the AP power level based on limited information (e.g., number of users).
+%To achieve load balancing, 
+%in \cite{bejerano2009cell}, Bejerano et al. proposed an algorithm to 
+%\cite{bejerano2009cell} determines globally optimal inter-AP fairness. 
+%However, both \cite{bahl2007cell} and \cite{bejerano2009cell} 
+%adjust the AP power level based on limited information (e.g., number of users).
 %cannot adjust the AP power level adaptively due to limited information of AP loads. 
 % without any prediction of association change trend.
 %\end{itemize}
@@ -70,7 +78,6 @@ adjust the AP power level based on limited information (e.g., number of users).
 			\includegraphics[scale=0.23]{images/cb_before.png}
 			\label{fig:fig2_2a}
 		}
-		
 		\subfigure[ AP $b$ transmits with the lowest power level.]
 		{
 			\includegraphics[scale=0.23]{images/cb_after.png}

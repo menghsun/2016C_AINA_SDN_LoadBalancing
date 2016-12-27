@@ -65,7 +65,7 @@ For normal commercial AP products, the transmission power level configuration fo
 \begin{eqnarray}
 {P_a^*}=log _\gamma\left({P_a} \right)  \quad,\gamma=\sqrt[N]{\frac{P_{max}}{P_{min}}}
 \end{eqnarray}
-Then $P_{a(lv.n)}^*$ is a geometric series which can be expressed as
+$P_{a(lv.n)}^*$ is a geometric series which can be expressed as
 \begin{align}
 &P_{a(lv.k)}^*={P_{a(lv.k-1)}^*}*\gamma\\										
 &P_{a(lv.k)}^*={P_{a, min}^*}*{\gamma^k}, k\in[0, N].							
@@ -100,7 +100,6 @@ In this subsection, we present the initial stage of adaptive load balancing. We 
   \item [Step 6.] After sending report messages to controller, the AP would receive a Beacon-Config message from the controller.
   \item [Step 7.] The AP configures its beacon transmission power.
 \end{description}
-
 %% Figure 3.2
 \begin{figure}[tbp]
 \centering
@@ -108,12 +107,10 @@ In this subsection, we present the initial stage of adaptive load balancing. We 
 \caption{Flow Chart for AP Reporting Mechanism}
 \label{fig:flowdiagram_trendindicator_ap}
 \end{figure}
-
 %\clearpage
 % comment out by little six 2016/10/14
 %On the other side, we describe a flow chart of controller manage mechanism in Figure \ref{fig:flowdiagram_trendindicator_controller}.
 The flow chart of the controller management mechanism is shown in Figure \ref{fig:flowdiagram_trendindicator_controller}, and following is the descriptions of steps.
-
 \begin{description}
   \item [Step 1.] The controller receives arrival events and load messages from APs.
   \item [Step 2.] The number of new arrival events is added into the arrival counting table. Then the controller calculates event increase at the latest time interval.
