@@ -58,13 +58,12 @@ Moving Speed         & {[}0.5, 1.5{]} m/s                       \\ \bottomrule
 
 \subsection{The Performance of APs}
 To measure the performance of APs, we define per second load of AP , $L_a$, to repesent the sum of associated user throughput, $L_{a,u})$. $L_{a,u}$ is the product of user bandwidth and user data rate. We assume the user bandwidth is the time interval that each AP fairly allocates the transmission time slot to its users. Users are able to transmit their data in the time slot. The user data rate can be derived from user SNR or distance with AP in Table \ref{tab:Traffic-Bit-Rate}.
-
 \begin{align}
 &L_a=\sum_{u\in{U_a}}L_{a,u}\\
 &L_{a,u}=b_{a,u}*r_{a,u}\\
 &b_{a,u}=\frac{1}{|U_a|}   ,|U_a|={number\ of\ users}
 \end{align}
-\\
+
 Figure \ref{fig:fig4_2a}, \ref{fig:fig4_2b} and \ref{fig:fig4_2c} show the average load of all APs with 100, 250 and 400 users respectively. The X-axis represents the index of APs, and the APs are sorted by their average load in increasing order. In the case of 100 users, we generate two groups which have average 50 users. The users are less than 50 meters from their group center. In Figure \ref{fig:fig4_2a}, we notice that the curves of our scheme, LLF and Cell-Breathing are more gently than the curve of SSF. In SSF, some APs are heavily congested and some APs are vacant.  Although the curve of Cell-Breathing is the most gently one, the sum of its average load is the least (in Table \ref{tab:Total-AP-load}). As Table \ref{tab:Total-AP-load} shows, the load of our scheme performs $11\%$ better than SSF and $347\%$ times better than Cell-Breathing. The difference between our scheme and Cell-Breathing is that we consider both the imbalance load distribution and the optimal state of all APs. Limited to the knowledge of network situation, Cell-Breathing is not able to adjust AP beacon power levels to the optimal result.
 
 Figure \ref{fig:fig4_2b} and \ref{fig:fig4_2c} show the curves of our scheme, LLF and Cell-Breathing are more gently than the curve of SSF. In the case of 250 users, we generate five groups which have average 50 users and all users are less than 50 meters near from their group center. In the case of 400 users, we generate two groups which have average 200 users. The users of each group move around the center in 100 meters, and they bring a large amount of connection request to nearby APs. Figure \ref{fig:fig4_2c} illustrates that the gap between SSF and Cell-Breathing is smaller than the gap in Figure \ref{fig:fig4_2b}, and our scheme outperforms these two method.

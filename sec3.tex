@@ -119,15 +119,14 @@ The flow chart of the controller management mechanism is shown in Figure \ref{fi
   \item [Step 2.] The number of new arrival events is added into the arrival counting table. Then the controller calculates event increase at the latest time interval.
   \item [Step 3.] The controller compares the number of current arrival events with the past. When an AP exceeds the threshold of arrival events, it has a high risk of overcrowding. At this time, the controller gives the AP a predicted load value and then go to \textbf{Step 6}.
   \item [Step 4.] The controller classifies all APs into three load levels: vacant, normal and overcrowding. According to the levels, the APs are added into $({S_v}$, ${S_n}$ and ${S_o}$) respectively. The $b_{vn}$ and $b_{no}$ denote the boundaries between these levels.
-
       \begin{align}
         &L_{l,a}=\left\{\begin{array}{lll}
             v, L_a \leq b_{vn} \\ n, L_a \leq b_{no} \\ o, L_a < b_o
             \end{array} \right\} \\
-            \nonumber\\
-        &S_v={a|L_{l,a}=v}\\
-        &S_n={a|L_{l,a}=n}\\
-        &S_o={a|L_{l,a}=o}
+            \nonumber
+        &S_v={a|L_{l,a}=v},\ 
+        S_n={a|L_{l,a}=n},\ 
+        S_o={a|L_{l,a}=o}
       \end{align}
   \item [Step 5.] This procedure ends when there is no AP changing to overcrowding state $S_o$.
   \item [Step 6.] The controller calculates the adjustments of APs according to the load balancing algorithm which is described in next subsection.
